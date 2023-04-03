@@ -5,7 +5,7 @@ import function_library
 import config
 
 async def main():
-    print("VRC Spotify announcer by Shiina_0")
+    print("VRC Spotify status by Shiina_0")
     print("Make sure that OSC is enabled ;)")
 
     client = udp_client.SimpleUDPClient("127.0.0.1", 9000)
