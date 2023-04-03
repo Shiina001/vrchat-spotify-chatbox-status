@@ -29,18 +29,25 @@ async def main():
             if title != last_fetch_song_title:
                 
                 if config.DO_NEW_MEDIA_ANNOUNCEMENT and not config.UPDATE_ONLY_ON_MEDIA_CHANGED:
-                    function_library.chat_box_send(client, f"{config.ON_NEW_MEDIA_STARTED.format(title=title, artists=artists)}")
+                    message = f"{config.ON_NEW_MEDIA_STARTED.format(title=title, artists=artists)}"
+                    message = function_library.format_string_if_too_long(message)
+                    function_library.chat_box_send(client, message)
                 
                 if config.UPDATE_ONLY_ON_MEDIA_CHANGED:
-                    function_library.chat_box_send(client, f"{config.ON_MEDIA_PLAYING.format(title=title, artists=artists, timeline_current=timeline_current, timeline_end=timeline_end)}")
+                    message = f"{config.ON_MEDIA_PLAYING.format(title=title, artists=artists, timeline_current=timeline_current, timeline_end=timeline_end)}"
+                    message = function_library.format_string_if_too_long(message)
+                    function_library.chat_box_send(client, message)
 
             elif title == last_fetch_song_title and not config.UPDATE_ONLY_ON_MEDIA_CHANGED:
-                function_library.chat_box_send(client, f"{config.ON_MEDIA_PLAYING.format(title=title, artists=artists, timeline_current=timeline_current, timeline_end=timeline_end)}")
+                message = f"{config.ON_MEDIA_PLAYING.format(title=title, artists=artists, timeline_current=timeline_current, timeline_end=timeline_end)}"
+                message = function_library.format_string_if_too_long(message)
+                function_library.chat_box_send(client, message)
         
         else:
             if not media_paused:
-                function_library.chat_box_send(client, config.ON_MEDIA_PAUSED)
-                print(config.ON_MEDIA_PAUSED)
+                message = config.ON_MEDIA_PAUSED
+                message = function_library.format_string_if_too_long(message)
+                function_library.chat_box_send(client, message)
             media_paused = True
             title = None
 

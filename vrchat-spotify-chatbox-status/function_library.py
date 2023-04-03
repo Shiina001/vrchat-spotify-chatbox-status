@@ -58,3 +58,10 @@ def format_timestamp(timeline_current, timeline_end):
     timeline_current = timeline_current[0:-7]  
 
     return (timeline_current, timeline_end)
+
+
+def format_string_if_too_long(string):
+    if len(string) >= 144:
+        string = string[0:140] + '...'
+    
+    return string

@@ -1,5 +1,5 @@
 #Integers
-MEDIA_FETCH_FREQUENCY = 5 #(seconds) I don't know if you can get rate limited by spamming in chat so be careful how often it posts(if I'm wrong correct me)
+MEDIA_FETCH_FREQUENCY = 10 #(seconds) I don't know if you can get rate limited by spamming in chat so be careful how often it posts(if I'm wrong correct me)
 
 #Boolean
 UPDATE_ONLY_ON_MEDIA_CHANGED = False #If set to False song info will update on every fetch (set to False if you want live timeline updates)
